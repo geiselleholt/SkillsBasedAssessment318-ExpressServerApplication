@@ -64,5 +64,5 @@ const reviews = [
     },
   ];
   
- export default posts;
+ export default reviews;
   

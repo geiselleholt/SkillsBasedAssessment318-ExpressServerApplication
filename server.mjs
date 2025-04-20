@@ -15,8 +15,8 @@ app.use(express.json());
 
 // Routes
 app.use("/api/batmanMovies", batmanMovieRoutes);
-app.use("/api/villan", villanRoutes);
-app.use("/api/review", reviewRoutes);
+app.use("/api/villans", villanRoutes);
+app.use("/api/reviews", reviewRoutes);
 
 // Error handling middleware
 app.use((req, res, next) => {

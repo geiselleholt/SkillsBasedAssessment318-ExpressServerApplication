@@ -19,5 +19,5 @@ const batmanMovies = [
     },
   ];
   
- export default users;
+ export default batmanMovies;
   

@@ -5,7 +5,7 @@ import error from "../utilities/error.mjs";
 
 const router = express.Router();
 
-// @desc: Get All villans
+// @desc: Get ALL villans
 // @path: /api/villan
 // @access: Public
 router
@@ -15,7 +15,7 @@ router
   })
   .post((req, res) => {
     if (req.body.batmanMoviesId && req.body.name && req.body.actor) {
-      if (villans.find((u) => u.name == req.body.name)) {
+      if (villans.find((batmanMoviesId) => batmanMoviesId.name == req.body.name)) {
         next(error(409, "name Already Taken"));
         return;
       }
@@ -32,20 +32,23 @@ router
     } else next(error(409, "name Already Taken"));
   });
 
-// @desc: Get ONE villan
-// @path: /api/villan/:id
-// @access: Public
 router
   .route("/:id")
+  // @desc: Get ONE villan
+  // @path: /api/villan/:id
+  // @access: Public
   .get((req, res, next) => {
-    const villan = villans.find((u) => u.id == req.params.id);
+    const villan = villans.find((batmanMoviesId) => batmanMoviesId.id == req.params.id);
 
     if (villan) res.json(villan);
     else next();
   })
+  // @desc: Update a villan
+  // @path: /api/villan/:id
+  // @access: Public
   .patch((req, res, next) => {
-    const villan = villans.find((u, i) => {
-      if (u.id == req.params.id) {
+    const villan = villans.find((batmanMoviesId, i) => {
+      if (batmanMoviesId.id == req.params.id) {
         for (const key in req.body) {
           villans[i][key] = req.body[key];
         }
@@ -56,9 +59,12 @@ router
     if (villan) res.json(villan);
     else next();
   })
+  // @desc: Delete a villan
+  // @path: /api/villan/:id
+  // @access: Public
   .delete((req, res, next) => {
-    const villan = villans.find((u, i) => {
-      if (u.id == req.params.id) {
+    const villan = villans.find((batmanMoviesId, i) => {
+      if (batmanMoviesId.id == req.params.id) {
         villans.splice(i, 1);
         return true;
       }
@@ -68,36 +74,4 @@ router
     else next();
   });
 
-//GET /api/villans/:id/batmanMovies  also added a DELETE route
-router
-  .route("/:id/batmanMovies")
-  .get((req, res, next) => {
-    const villan = villans.find((villan) => villan.id == req.params.id);
-    let villanbatmanMovies = [];
-
-    batmanMovies.forEach((post) => {
-      if (post.villanId == villan.id) {
-        villanbatmanMovies.push(post);
-      }
-    });
-
-    if (villanbatmanMovies.length > 0) res.json(villanbatmanMovies);
-    else next(error(400, "No matching Batman Movies"));
-  })
-  .delete((req, res, next) => {
-    const villan = villans.find((villan) => villan.id == req.params.id);
-    let villanbatmanMovies = [];
-
-    batmanMovies.forEach((post) => {
-      if (post.villanId == villan.id) {
-        villanbatmanMovies.push(post);
-        let index = batmanMovies.indexOf(post);
-        batmanMovies.splice(index, 1);
-      }
-    });
-    if (villanbatmanMovies.length > 0) res.json(villanbatmanMovies);
-    else next();
-  });
-
-
-export default router;
+  export default router;

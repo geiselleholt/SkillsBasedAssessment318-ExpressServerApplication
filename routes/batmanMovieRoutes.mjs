@@ -5,7 +5,7 @@ import error from "../utilities/error.mjs";
 
 const router = express.Router();
 
-// @desc: Get All batmanMovies
+// @desc: Get ALL batmanMovies
 // @path: /api/batmanMovie
 // @access: Public
 router
@@ -16,7 +16,7 @@ router
   // @desc: Create A batmanMovie
   // @path: /api/batmanMovie
   // @access: Public
-  .villan((req, res) => {
+  .post((req, res) => {
     if (req.body.title && req.body.year && req.body.bruceWayne) {
       if (batmanMovies.find((batmanMovie) => batmanMovie.title == req.body.title)) {
         next(error(409, "Movie Title Already Added"));
