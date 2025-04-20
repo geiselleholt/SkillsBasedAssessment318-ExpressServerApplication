@@ -16,7 +16,7 @@ router
   // @path: /api/reviews
   // @access: Public
   .post((req, res, next) => {
-    if (req.body.id && req.body.batmanMoviesId && req.body.rating && req.body.review) {
+    if (req.body.batmanMoviesId && req.body.rating && req.body.review) {
       if (
         reviews.find(
           (review) => review.id == req.body.id
@@ -35,7 +35,7 @@ router
 
       reviews.push(review);
       res.json(reviews[reviews.length - 1]);
-    } else next(error(409, "Review Already Exists"));
+    } else next(error(404, "Missing Data or Data Entered Incorrectly"));
   });
 
 router
@@ -47,7 +47,7 @@ router
     const review = reviews.find((review) => review.id == req.params.id);
 
     if (review) res.json(review);
-    else next();
+    else next(error(404, "No Review With That Id Number"));
   })
   // @desc: Update ONE review
   // @path: /api/review/:id
@@ -63,7 +63,7 @@ router
     });
 
     if (review) res.json(review);
-    else next();
+    else next(error(404, "Missing Data or Data Entered Incorrectly"));
   })
   // @desc: Delete ONE review
   // @path: /api/review/:id
