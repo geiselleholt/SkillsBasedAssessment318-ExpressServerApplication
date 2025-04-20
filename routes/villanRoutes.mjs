@@ -1,43 +1,49 @@
 import express from "express";
 import villans from "../data/villans.mjs";
-import batmanMovies from "../data/batmanMovies.mjs";
 import error from "../utilities/error.mjs";
 
 const router = express.Router();
 
-// @desc: Get ALL villans
-// @path: /api/villans
-// @access: Public
 router
   .route("/")
+  // @desc: Get ALL villans
+  // @path: /api/villans
+  // @access: Public
   .get((req, res) => {
     res.json(villans);
   })
-  .post((req, res) => {
-    if (req.body.batmanMoviesId && req.body.name && req.body.actor) {
-      if (
-        villans.find((batmanMoviesId) => batmanMoviesId.name == req.body.name)
-      ) {
-        next(error(409, "name Already Taken"));
+  // @desc: Create a villan
+  // @path: /api/villans
+  // @access: Public
+  .post((req, res, next) => {
+    if (
+      req.body.batmanMoviesId &&
+      req.body.batmanMoviesTitle &&
+      req.body.name &&
+      req.body.actor
+    ) {
+      if (villans.find((villan) => villan.name == req.body.name)) {
+        next(error(409, "Villan Already Created"));
         return;
       }
 
       const villan = {
         id: villans[villans.length - 1].id + 1,
         batmanMoviesId: req.body.batmanMoviesId,
+        batmanMoviesTitle: req.body.batmanMoviesTitle,
         name: req.body.name,
         actor: req.body.actor,
       };
 
       villans.push(villan);
       res.json(villans[villans.length - 1]);
-    } else next(error(404, "Name Already Taken"));
+    } else next(error(404, "Missing Data or Data Entered Incorrectly"));
   });
 
 router
   .route("/:id")
   // @desc: Get ONE villan
-  // @path: /api/villan/:id
+  // @path: /api/villans/:id
   // @access: Public
   .get((req, res, next) => {
     const villan = villans.find(
@@ -48,7 +54,7 @@ router
     else next();
   })
   // @desc: Update a villan
-  // @path: /api/villan/:id
+  // @path: /api/villans/:id
   // @access: Public
   .patch((req, res, next) => {
     const villan = villans.find((batmanMoviesId, i) => {
@@ -61,10 +67,10 @@ router
     });
 
     if (villan) res.json(villan);
-    else next();
+    else next(error(400, "No Villans with this ID Number"));
   })
   // @desc: Delete a villan
-  // @path: /api/villan/:id
+  // @path: /api/villans/:id
   // @access: Public
   .delete((req, res, next) => {
     const villan = villans.find((batmanMoviesId, i) => {
@@ -93,7 +99,7 @@ router
     });
 
     if (batmanMovieVillans.length > 0) res.json(batmanMovieVillans);
-    else next(error(400, "No Villans For This Batman Movie"));
+    else next(error(404, "No Villans For This Batman Movie"));
   })
   // @desc: Delete all villans from a batmanMovie by title
   // @path: /api/villans/batmanMovieTitle
