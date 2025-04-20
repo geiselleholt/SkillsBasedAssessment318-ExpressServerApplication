@@ -1,25 +1,28 @@
 import express from "express";
 import reviews from "../data/reviews.mjs";
-import batmanMovies from "../data/batmanMovies.mjs";
 import error from "../utilities/error.mjs";
 
 const router = express.Router();
 
-// @desc: Get ALL reviews
-// @path: /api/review
-// @access: Public
 router
   .route("/")
+  // @desc: Get ALL reviews
+  // @path: /api/reviews
+  // @access: Public
   .get((req, res) => {
     res.json(reviews);
   })
   // @desc: Create A review
-  // @path: /api/review
+  // @path: /api/reviews
   // @access: Public
-  .post((req, res) => {
-    if (req.body.batmanMoviesId && req.body.rating && req.body.review) {
-      if (reviews.find((review) => review.batmanMoviesId == req.body.batmanMoviesId)) {
-        next(error(409, "Review Already Exists"));
+  .post((req, res, next) => {
+    if (req.body.id && req.body.batmanMoviesId && req.body.rating && req.body.review) {
+      if (
+        reviews.find(
+          (review) => review.id == req.body.id
+        )
+      ) {
+        next(error(400, "Review Already Exists"));
         return;
       }
 
@@ -76,6 +79,5 @@ router
     if (review) res.json(review);
     else next();
   });
-
 
 export default router;

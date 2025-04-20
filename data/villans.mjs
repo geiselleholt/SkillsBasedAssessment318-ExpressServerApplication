@@ -2,65 +2,74 @@ const villans = [
   {
     id: 1,
     batmanMoviesId: 1,
-    name: "est et quae odit qui non",
+    batmanMoviesTitle: "A",
+    name: "Joker",
     actor:
-      "similique esse doloribus nihil accusamus\nomnis dolorem fuga consequuntur reprehenderit fugit recusandae temporibus\nperspiciatis cum ut laudantium\nomnis aut molestiae vel vero",
+      "Z",
   },
   {
     id: 2,
-    userId: 1,
-    name: "quasi id et eos tenetur aut quo autem",
+    batmanMoviesId: 1,
+    batmanMoviesTitle: "A",
+    name: "Penguin",
     actor:
-      "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur",
+      "Y",
   },
   {
     id: 3,
-    userId: 1,
-    name: "delectus ullam et corporis nulla voluptas sequi",
+    batmanMoviesId: 1,
+    batmanMoviesTitle: "A",
+    name: "Harley Quinn",
     actor:
-      "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum",
+      "V",
   },
   {
     id: 4,
-    userId: 2,
-    name: "iusto eius quod necessitatibus culpa ea",
+    batmanMoviesId: 2,
+    batmanMoviesTitle: "B",
+    name: "Riddler",
     actor:
-      "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores",
+      "X",
   },
   {
     id: 5,
-    userId: 2,
-    name: "a quo magni similique perferendis",
+    batmanMoviesId: 2,
+    batmanMoviesTitle: "B",
+    name: "Cat Woman",
     actor:
-      "alias dolor cumque\nimpedit blanditiis non eveniet odio maxime\nblanditiis amet eius quis tempora quia autem rem\na provident perspiciatis quia",
+      "W",
   },
   {
     id: 6,
-    userId: 2,
-    name: "ullam ut quidem id aut vel consequuntur",
+    batmanMoviesId: 2,
+    batmanMoviesTitle: "B",
+    name: "Two Face",
     actor:
-      "debitis eius sed quibusdam non quis consectetur vitae\nimpedit ut qui consequatur sed aut in\nquidem sit nostrum et maiores adipisci atque\nquaerat voluptatem adipisci repudiandae",
+      "T",
   },
   {
     id: 7,
-    userId: 3,
-    name: "doloremque illum aliquid sunt",
+    batmanMoviesId: 3,
+    batmanMoviesTitle: "C",
+    name: "Poison Ivy",
     actor:
-      "deserunt eos nobis asperiores et hic\nest debitis repellat molestiae optio\nnihil ratione ut eos beatae quibusdam distinctio maiores\nearum voluptates et aut adipisci ea maiores voluptas maxime",
+      "U",
   },
   {
     id: 8,
-    userId: 3,
-    name: "qui explicabo molestiae dolorem",
+    batmanMoviesId: 3,
+    batmanMoviesTitle: "C",
+    name: "Freeze",
     actor:
-      "rerum ut et numquam laborum odit est sit\nid qui sint in\nquasi tenetur tempore aperiam et quaerat qui in\nrerum officiis sequi cumque quod",
+      "Q",
   },
   {
     id: 9,
-    userId: 3,
-    name: "magnam ut rerum iure",
+    batmanMoviesId: 3,
+    batmanMoviesTitle: "C",
+    name: "Bain",
     actor:
-      "ea velit perferendis earum ut voluptatem voluptate itaque iusto\ntotam pariatur in\nnemo voluptatem voluptatem autem magni tempora minima in\nest distinctio qui assumenda accusamus dignissimos officia nesciunt nobis",
+      "R",
   },
 ];
 

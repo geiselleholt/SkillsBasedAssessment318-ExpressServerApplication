@@ -1,21 +1,21 @@
 const batmanMovies = [
     {
       id: 1,
-      title: "Carey",
-      year: "cyare23",
-      bruceWayne: "cy23@example.com",
+      title: "A",
+      year: 2020,
+      bruceWayne: "1st",
     },
     {
       id: 2,
-      title: "Mikoto",
-      year: "Miiko",
-      bruceWayne: "mikoto_u@example.com",
+      title: "B",
+      year: 2022,
+      bruceWayne: "2nd",
     },
     {
       id: 3,
-      title: "Ronald",
-      year: "RonRonRon",
-      bruceWayne: "mronald@example.com",
+      title: "C",
+      year: 2025,
+      bruceWayne: "3rd",
     },
   ];
   
