@@ -1,6 +1,7 @@
 import express from "express";
 import villans from "../data/villans.mjs";
 import error from "../utilities/error.mjs";
+import chalk from 'chalk';
 
 const router = express.Router();
 
@@ -23,7 +24,7 @@ router
       req.body.actor
     ) {
       if (villans.find((villan) => villan.name == req.body.name)) {
-        next(error(409, "Villan Already Created"));
+        next(chalk.red(error(409, "Villan Already Created")));
         return;
       }
 
@@ -37,7 +38,7 @@ router
 
       villans.push(villan);
       res.json(villans[villans.length - 1]);
-    } else next(error(404, "Missing Data or Data Entered Incorrectly"));
+    } else next(chalk.blue.bold(error(404, "Missing Data or Data Entered Incorrectly")));
   });
 
 router
@@ -67,7 +68,7 @@ router
     });
 
     if (villan) res.json(villan);
-    else next(error(400, "No Villans with this ID Number"));
+    else next(chalk.red(error(400, "No Villans with this ID Number")));
   })
   // @desc: Delete a villan
   // @path: /api/villans/:id
@@ -81,7 +82,7 @@ router
     });
 
     if (villan) res.json(villan);
-    else next();
+    else next(chalk.blue(error(400, "No Villans with this ID Number")));
   });
 
 router
