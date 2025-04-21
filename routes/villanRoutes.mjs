@@ -1,7 +1,7 @@
 import express from "express";
 import villans from "../data/villans.mjs";
 import error from "../utilities/error.mjs";
-import chalk from 'chalk';
+import chalk from "chalk";
 
 const router = express.Router();
 
@@ -38,7 +38,10 @@ router
 
       villans.push(villan);
       res.json(villans[villans.length - 1]);
-    } else next(chalk.blue.bold(error(404, "Missing Data or Data Entered Incorrectly")));
+    } else
+      next(
+        chalk.blue.bold(error(404, "Missing Data or Data Entered Incorrectly"))
+      );
   });
 
 router
@@ -100,7 +103,7 @@ router
     });
 
     if (batmanMovieVillans.length > 0) res.json(batmanMovieVillans);
-    else next(error(404, "No Villans For This Batman Movie"));
+    else next(chalk.red(error(404, "Batman Movie Title Not Found")));
   })
   // @desc: Delete all villans from a batmanMovie by title
   // @path: /api/villans/batmanMovieTitle
