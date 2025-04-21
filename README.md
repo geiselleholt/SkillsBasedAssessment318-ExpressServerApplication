@@ -24,22 +24,23 @@
 - ✅ Use at least three different data categories (e.g., users, posts, or comments)
     - batmanMovies, reviews, villans
 - ✅ Utilize reasonable data structuring practices
-    - used simple ojects in JSON format for data structures
+    - used simple objects in JSON format for data structures
 - ✅ Create GET routes for all data that should be exposed to the client
-    - all 3 catagories have get all and get by id
+    - all 3 catagories have get all and get by id routes
 - ✅ Create POST routes for data, as appropriate. At least one data category should allow for client creation via a POST request
+    - all 3 catagories have post routes
 - ✅ Create PATCH or PUT routes for data, as appropriate. At least one data category should allow for client manipulation via a PATCH or PUT request
     - all 3 catagories have patch routes by id
 - ✅ Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request
-    - all 3 catagories have delete by id
+    - all 3 catagories have delete routes by id
     - villanRoutes has delete all villans by movie title and delete all villans by movie title
 - ⭕ Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters
     - 
 - ✅ Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently
 - ✅ Utilize route parameters, where appropriate
     - villanRoutes uses /:batmanMovieTitles to get or delete all villans by movies title
-- ⭕ Adhere to the guiding principles of REST 
-    - need to add some HATEOAS links
+- ✅ Adhere to the guiding principles of REST 
+    - added HATEOAS links to server.mjs
 - ⭕ Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine
 - ⭕ Include a form within a rendered view that allows for interaction with your RESTful API
 - ✅ Utilize reasonable code organization practices

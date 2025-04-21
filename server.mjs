@@ -20,6 +20,44 @@ app.use("/api/batmanMovies", batmanMovieRoutes);
 app.use("/api/villans", villanRoutes);
 app.use("/api/reviews", reviewRoutes);
 
+// HATEOAS links to adhere to the guiding principles of REST
+app.get("/api", (req, res) => {
+  res.json({
+    links: [
+      {
+        href: "api/batmanMovies",
+        rel: "batmanMovies",
+        type: "GET",
+      },
+      {
+        href: "api/batmanMovies",
+        rel: "batmanMovies",
+        type: "POST",
+      },
+      {
+        href: "api/reviews",
+        rel: "reviews",
+        type: "GET",
+      },
+      {
+        href: "api/reviews",
+        rel: "reviews",
+        type: "POST",
+      },
+      {
+        href: "api/villans",
+        rel: "villans",
+        type: "GET",
+      },
+      {
+        href: "api/villans",
+        rel: "villans",
+        type: "POST",
+      },
+    ],
+  });
+});
+
 // Error handling middleware
 app.use((req, res, next) => {
     next(error(404, "Resource Not Found"));
