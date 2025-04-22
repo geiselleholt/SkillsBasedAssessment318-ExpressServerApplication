@@ -11,7 +11,6 @@
 - Interact with a self-made API through HTML forms.
 
 ### This SBA was worth more points than any other SBA and we were given 3 days instead of 2. If I had more time I would:
-- Bug Fix- in villainRoutes. How does it know if the param is the batmanMovieTitle or the villanID? I think I can fix with regex?
 - Make the viewport prettier (the requirement said to keep the css simple)
 
 ### Requirements checklist:
@@ -34,7 +33,7 @@
 - ✅ Create DELETE routes for data, as appropriate. At least one data category should allow for client deletion via a DELETE request
     - all 3 catagories have delete routes by id
     - villanRoutes has delete all villans by movie title and delete all villans by movie title
-- ⭕ Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters
+- ✅ Include query parameters for data filtering, where appropriate. At least one data category should allow for additional filtering through the use of query parameters
     - 
 - ✅ Note: DO NOT use API keys; this makes it more difficult for instructors to grade finished projects efficiently
 - ✅ Utilize route parameters, where appropriate

@@ -105,9 +105,9 @@ router
   });
 
 router
-  .route("/:batmanMoviesTitle")
+  .route("/batmanMoviesTitle/:title")
   // @desc: Get all villans from a batmanMovie by title
-  // @path: /api/villans/batmanMoviesTitle
+  // @path: /api/villans/batmanMoviesTitle/:title
   // @access: Public
   .get((req, res, next) => {
     let batmanMovieVillans = [];
@@ -122,7 +122,7 @@ router
     else next(chalk.red(error(404, "Batman Movie Title Not Found")));
   })
   // @desc: Delete all villans from a batmanMovie by title
-  // @path: /api/villans/batmanMovieTitle
+  // @path: /api/villans/batmanMovieTitle/:title
   // @access: Public
   .delete((req, res, next) => {
     let batmanMovieVillans = [];
