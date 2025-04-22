@@ -21,12 +21,10 @@ router
       );
     }
     if (name) {
-      query = query.filter((villan) => villan.name === name);
+      query = query.filter((villan) => villan.name.includes(name));
     }
     if (actor) {
-      query = query.filter((villan) =>
-        villan.actor.includes(actor)
-      );
+      query = query.filter((villan) => villan.actor.includes(actor));
     }
 
     res.json(query);

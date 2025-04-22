@@ -12,18 +12,18 @@ router
   .get((req, res) => {
     const { batmanMoviesTitle, rating, review } = req.query;
 
-    let query = [...villans];
+    let query = [...reviews];
 
     if (batmanMoviesTitle) {
-      query = query.filter((villan) =>
-        villan.batmanMoviesTitle.includes(batmanMoviesTitle)
+      query = query.filter((review) =>
+        review.batmanMoviesTitle.includes(batmanMoviesTitle)
       );
     }
     if (rating) {
-      query = query.filter((villan) => villan.rating === rating);
+      query = query.filter((review) => Number(review.rating) === Number(rating));
     }
     if (review) {
-      query = query.filter((villan) => villan.review.includes(review));
+      query = query.filter((review) => review.review.includes(review));
     }
 
     res.json(query);

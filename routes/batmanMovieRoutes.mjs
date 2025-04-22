@@ -20,7 +20,7 @@ router
       );
     }
     if (year) {
-      query = query.filter((movie) => movie.year === year);
+      query = query.filter((movie) => Number(movie.year) === Number(year));
     }
     if (bruceWayne) {
       query = query.filter((movie) =>
