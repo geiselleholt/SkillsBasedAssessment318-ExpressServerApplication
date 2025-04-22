@@ -1,6 +1,5 @@
 import express from "express";
 import batmanMovies from "../data/batmanMovies.mjs";
-import villans from "../data/villans.mjs";
 import error from "../utilities/error.mjs";
 
 const router = express.Router();
@@ -11,7 +10,25 @@ router
   // @path: /api/batmanMovies
   // @access: Public
   .get((req, res) => {
-    res.json(batmanMovies);
+    const { title, year, bruceWayne } = req.query;
+
+    let query = [...batmanMovies];
+
+    if (title) {
+      query = query.filter((movie) =>
+        movie.title.includes(title)
+      );
+    }
+    if (year) {
+      query = query.filter((movie) => movie.year === year);
+    }
+    if (bruceWayne) {
+      query = query.filter((movie) =>
+        movie.bruceWayne.includes(bruceWayne)
+      );
+    }
+
+    res.json(query);
   })
   // @desc: Create A batmanMovie
   // @path: /api/batmanMovies
@@ -57,15 +74,15 @@ router
     const movieIndex = batmanMovies.findIndex(
       (batmanMovie) => batmanMovie.id == req.params.id
     );
-  
+
     if (movieIndex === -1) {
       return next(error(404, "No Movie Found For That ID Number"));
     }
-  
+
     // Update the movie with the new data
     const updatedMovie = { ...batmanMovies[movieIndex], ...req.body };
     batmanMovies[movieIndex] = updatedMovie;
-  
+
     res.json(updatedMovie);
   })
   // @desc: Delete ONE batmanMovie

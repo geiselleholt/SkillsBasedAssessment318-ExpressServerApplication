@@ -11,7 +11,25 @@ router
   // @path: /api/villans
   // @access: Public
   .get((req, res) => {
-    res.json(villans);
+    const { batmanMoviesTitle, name, actor } = req.query;
+
+    let query = [...villans];
+
+    if (batmanMoviesTitle) {
+      query = query.filter((villan) =>
+        villan.batmanMoviesTitle.includes(batmanMoviesTitle)
+      );
+    }
+    if (name) {
+      query = query.filter((villan) => villan.name === name);
+    }
+    if (actor) {
+      query = query.filter((villan) =>
+        villan.actor.includes(actor)
+      );
+    }
+
+    res.json(query);
   })
   // @desc: Create a villan
   // @path: /api/villans

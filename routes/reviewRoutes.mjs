@@ -10,18 +10,30 @@ router
   // @path: /api/reviews
   // @access: Public
   .get((req, res) => {
-    res.json(reviews);
+    const { batmanMoviesTitle, rating, review } = req.query;
+
+    let query = [...villans];
+
+    if (batmanMoviesTitle) {
+      query = query.filter((villan) =>
+        villan.batmanMoviesTitle.includes(batmanMoviesTitle)
+      );
+    }
+    if (rating) {
+      query = query.filter((villan) => villan.rating === rating);
+    }
+    if (review) {
+      query = query.filter((villan) => villan.review.includes(review));
+    }
+
+    res.json(query);
   })
   // @desc: Create A review
   // @path: /api/reviews
   // @access: Public
   .post((req, res, next) => {
     if (req.body.batmanMoviesId && req.body.rating && req.body.review) {
-      if (
-        reviews.find(
-          (review) => review.id == req.body.id
-        )
-      ) {
+      if (reviews.find((review) => review.id == req.body.id)) {
         next(error(400, "Review Already Exists"));
         return;
       }
