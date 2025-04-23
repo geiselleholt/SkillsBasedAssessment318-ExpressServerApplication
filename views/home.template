@@ -3,6 +3,10 @@
   <head>
     <title>#title#</title>
     <meta charset="UTF-8" />
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"
+    ></script>
     <script defer type="module" src="/script.mjs"></script>
     <link rel="stylesheet" href="/styles.css" />
   </head>
@@ -11,12 +15,19 @@
     <nav>
       <h1>#title#</h1>
     </nav>
-    <div id="app">
-      <h2>Enter the #content# you want to search</h2>
-      <form>
-        
+    <div id="searchFormDiv">
+      <h3>#content#</h3>
+      <form id="searchForm">
+        <input 
+          type="text" 
+          id="movieTitle" 
+          placeholder="Ex: A, B, or C" 
+          required
+        >
+        <button type="submit">Search</button>
       </form>
     </div>
+    <div id="results"></div>
     <footer>
       <p id="copyRight">
         &copy; 2025 by
