@@ -12,6 +12,7 @@
 
 ### This SBA was worth more points than any other SBA and we were given 3 days instead of 2. If I had more time I would:
 - Make the viewport prettier (the requirement said to keep the css simple)
+- Add more routes to my viewport
 
 ### Requirements checklist:
 - ✅ Create and use at least two pieces of custom middleware
@@ -40,13 +41,13 @@
     - villanRoutes uses /:batmanMovieTitles to get or delete all villans by movies title
 - ✅ Adhere to the guiding principles of REST 
     - added HATEOAS links to server.mjs
-- ⭕ Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine
-- ⭕ Include a form within a rendered view that allows for interaction with your RESTful API
+- ✅ Create and render at least one view using a view template and template engine. This can be a custom template engine or a third-party engine
+- ✅ Include a form within a rendered view that allows for interaction with your RESTful API
 - ✅ Utilize reasonable code organization practices
     - separte folders for data, routes, utilities, and views
-- ⭕✅ Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit)
+- ✅✅ Ensure that the program runs without errors (comment out things that do not work, and explain your blockers - you can still receive partial credit)
     - all routes work with no errors
-    - ⭕ view port runs with no errors
+    - ✅ view port runs with no errors
 - ✅ Commit frequently to the git repository
     - lots of commits
 - ✅ Include a README file that contains a description of your application

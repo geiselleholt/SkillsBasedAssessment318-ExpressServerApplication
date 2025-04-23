@@ -14,7 +14,7 @@ async function handleSearchForm(e) {
       const movie = response.data;
       console.log(movie);
 
-      if (!movie) {
+      if (movie.length === 0) {
         resultsDiv.innerHTML = `<p>No movie found for "${title}"</p>`;
         return;
       }

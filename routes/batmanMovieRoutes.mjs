@@ -51,7 +51,7 @@ router
 
       batmanMovies.push(batmanMovie);
       res.json(batmanMovies[batmanMovies.length - 1]);
-    } else next(error(409, "Movie Title Already Added"));
+    } else next(error(409, "Data Missing"));
   });
 
 router
