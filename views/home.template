@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>#title#</title>
+    <meta charset="UTF-8" />
+    <script defer type="module" src="/script.mjs"></script>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+
+  <body>
+    <nav>
+      <h1>#title#</h1>
+    </nav>
+    <div id="app">
+      <h2>Enter the #content# you want to search</h2>
+      <form>
+        
+      </form>
+    </div>
+    <footer>
+      <p id="copyRight">
+        &copy; 2025 by
+        <a href="https://www.linkedin.com/in/geiselle-holt/">Geiselle Holt</a>
+      </p>
+    </footer>
+  </body>
+</html>
